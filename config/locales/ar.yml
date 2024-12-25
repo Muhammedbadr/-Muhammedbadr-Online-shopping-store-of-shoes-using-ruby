@@ -3,4 +3,5 @@ ar:
   log_in: 'تسجيل الدخول'
   sign_up: "اشتراك"
   forgot_your_password: "نسيت كلمة السر"
+  sign_out: " تسجيل الخروج"
   

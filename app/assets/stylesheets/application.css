@@ -1,15 +1,75 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  transition: 0.3s;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} 
+.card:hover {
+  transform: scale(1.05);
+}
+
+.image-caption {
+  position: relative;
+  background: #000000a0;
+  padding: 3rem;
+  margin-top: -205px;
+  color: white;
+}
+
+.image-caption h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.image-caption p {
+  font-size: 1.5rem;
+}
+
+.image-container:hover .image-caption {
+  background: #000000e0;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+.bg-primary {
+  background-color: #2786c5 !important; 
+}
+
+.btn-primary {
+  background-color: #2786c5 !important; 
+  border-color: #2786c5 !important;
+}
+
+.card {
+  width: 360px;
+  text-align: center;
+}
+
+.btn-group {
+  width: 200px;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse form a {
+    display: block;
+    margin: 12px 0;
+  }
+
+  .image-caption {
+    padding: 1rem;
+    margin-top: -142px;
+  }
+  
+  .image-caption h1 {
+    font-size: 2.5rem;
+  }
+  
+  .image-caption p {
+    font-size: 1.3rem;
+  }
+}
