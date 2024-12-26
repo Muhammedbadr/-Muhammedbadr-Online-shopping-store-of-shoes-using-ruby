@@ -1,5 +1,4 @@
 
-  
   <div class="container image-container my-2">
     <%= image_tag 'main-image.jpg', class: 'img-fluid mx-auto w-100', alt: 'shop image' %>
 
@@ -8,6 +7,7 @@
       <p>أفضل أنوع الألبسة المحلية والمستوردة</p>
     </div>
   </div>
+
   <div class="container my-3 text-center">
     <div class="btn-group my-1 mx-3">
       <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,83 +40,29 @@
       </ul>
     </div>
   </div>
+
+
   <div class="container my-3">
     <div class="row justify-content-center">
-      <div class="card m-2 p-0">
-        <%= image_tag 'prodects/02.jpg', class: 'card-img-top', alt: '...' %>
+      <% @products.each do |product| %>
+        <div class="card m-2 p-0">
+<%= image_tag("products/#{product.image_url}", class: 'card-img-top') %>
 
-        <div class="card-body">
-          <h3 class="card-title">جاكيت رجالي</h3>
-          <p class="card-text px-4 mb-1">من أجود أنواع الملابس ماركة مسجلة عالميًا في إنتاج أفضل أنواع الملابس المنسوجة بعناية</p>
-          <div class="mb-3">
-            <small class="mx-3 fw-bold fs-6">السعر: 120$</small>
-            <small class="mx-3 fw-bold fs-6">المقاس: xl</small>
+          <div class="card-body">
+            <h3 class="card-title font-bold text-xl"><%= product.name%></h3>
+            <p class="card-text px-4 mb-1"><%=product.details%></p>            
+            <div class="mb-3">
+              <small class="mx-3 fw-bold fs-6">سعر <%=product.price%>$</small>
+              <small class="mx-3 fw-bold fs-6">مقاس <%=product.size%></small>
+            </div>
+            <a href="#" class="btn btn-primary w-50">شراء</a>
           </div>
-          <a href="#" class="btn btn-primary w-50">شراء</a>
         </div>
-      </div>
-      <div class="card m-2 p-0">
-        <%= image_tag 'prodects/03.jpg', class: 'card-img-top', alt: '...' %>
-        <div class="card-body">
-          <h3 class="card-title">أفرول ولادي</h3>
-          <p class="card-text px-4 mb-1">من أجود أنواع الملابس ماركة مسجلة عالميًا في إنتاج أفضل أنواع الملابس المنسوجة بعناية</p>
-          <div class="mb-3">
-            <small class="mx-3 fw-bold fs-6">السعر: 120$</small>
-            <small class="mx-3 fw-bold fs-6">المقاس: xl</small>
-          </div>
-          <a href="#" class="btn btn-primary w-50">شراء</a>
-        </div>
-      </div>
-      <div class="card m-2 p-0">
-        <%= image_tag 'prodects/04.jpg', class: 'card-img-top', alt: '...' %>
-        <div class="card-body">
-          <h3 class="card-title">بلوزة شبابية</h3>
-          <p class="card-text px-4 mb-1">من أجود أنواع الملابس ماركة مسجلة عالميًا في إنتاج أفضل أنواع الملابس المنسوجة بعناية</p>
-          <div class="mb-3">
-            <small class="mx-3 fw-bold fs-6">السعر: 120$</small>
-            <small class="mx-3 fw-bold fs-6">المقاس: xl</small>
-          </div>
-          <a href="#" class="btn btn-primary w-50">شراء</a>
-        </div>
-      </div>
-      <div class="card m-2 p-0">
-        <%= image_tag 'prodects/05.jpg', class: 'card-img-top', alt: '...' %>
-        <div class="card-body">
-          <h3 class="card-title">قبعة صيفية</h3>
-          <p class="card-text px-4 mb-1">من أجود أنواع الملابس ماركة مسجلة عالميًا في إنتاج أفضل أنواع الملابس المنسوجة بعناية</p>
-          <div class="mb-3">
-            <small class="mx-3 fw-bold fs-6">السعر: 120$</small>
-            <small class="mx-3 fw-bold fs-6">المقاس: xl</small>
-          </div>
-          <a href="#" class="btn btn-primary w-50">شراء</a>
-        </div>
-      </div>
-      <div class="card m-2 p-0">
-        <%= image_tag 'prodects/06.jpg', class: 'card-img-top', alt: '...' %>
-        <div class="card-body">
-          <h3 class="card-title">بنطال رسمي</h3>
-          <p class="card-text px-4 mb-1">من أجود أنواع الملابس ماركة مسجلة عالميًا في إنتاج أفضل أنواع الملابس المنسوجة بعناية</p>
-          <div class="mb-3">
-            <small class="mx-3 fw-bold fs-6">السعر: 120$</small>
-            <small class="mx-3 fw-bold fs-6">المقاس: xl</small>
-          </div>
-          <a href="#" class="btn btn-primary w-50">شراء</a>
-        </div>
-      </div>
-      <div class="card m-2 p-0">
-        <%= image_tag 'prodects/07.jpg', class: 'card-img-top', alt: '...' %>
-        <div class="card-body">
-          <h3 class="card-title">حذاء رسمي</h3>
-          <p class="card-text px-4 mb-1">من أجود أنواع الملابس ماركة مسجلة عالميًا في إنتاج أفضل أنواع الملابس المنسوجة بعناية</p>
-          <div class="mb-3">
-            <small class="mx-3 fw-bold fs-6">السعر: 120$</small>
-            <small class="mx-3 fw-bold fs-6">المقاس: xl</small>
-          </div>
-          <a href="#" class="btn btn-primary w-50">شراء</a>
-        </div>
-      </div>
+        <%end %>
     </div>
   </div>
+
+
   <footer class="bg-primary text-light text-center mt-auto">
     <div class="text-center p-3">
       © 2023 <a class="text-light" href="https://academy.hsoub.com/">حسوب</a>. جميع الحقوق محفوظة.
