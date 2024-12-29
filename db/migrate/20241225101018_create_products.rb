@@ -4,8 +4,8 @@ class CreateProducts < ActiveRecord::Migration[7.2]
       t.string :name
       t.text :details
       t.integer :price
-      t.integer :size
       t.string :image_url
+      t.integer :size
       t.references :category, null: false, foreign_key: true
        
       t.timestamps

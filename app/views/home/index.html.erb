@@ -9,58 +9,57 @@
   </div>
 
   <div class="container my-3 text-center">
-    <div class="btn-group my-1 mx-3">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        الفئة العمرية
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">ولادي</a></li>
-        <li><a class="dropdown-item" href="#">رجالي</a></li>
-        <li><a class="dropdown-item" href="#">نسائي</a></li>
-      </ul>
-    </div>
-    <div class="btn-group my-1  mx-3">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        المقاس
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">small</a></li>
-        <li><a class="dropdown-item" href="#">medium</a></li>
-        <li><a class="dropdown-item" href="#">large</a></li>
-      </ul>
-    </div>
-    <div class="btn-group my-1  mx-3">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        السعر
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">أقل من 50$</a></li>
-        <li><a class="dropdown-item" href="#">أقل من 300$</a></li>
-        <li><a class="dropdown-item" href="#">300$ وأكثر</a></li>
-      </ul>
-    </div>
+    <form action="/#" method="get" class="d-flex">
+      <select class="form-select d-inline-black my-1 mx-3 " name="category">
+        <option selected disabled>صنف</option>
+        <% @categories.each  do |category|%>
+          <option option value="<%= category.id %>"><%= category.title %></option>
+        <% end %>      
+      </select>
+      <select class="form-select d-inline-black my-1 mx-3 " name="size">
+        <option selected disabled>المقاس</option>
+        <option value="1">صغير</option> 
+        <option value="2">وسط</option> 
+        <option value="3">كبير</option> 
+      </select>
+      <select class="form-select d-inline-black my-1 mx-3 " name="price">
+        <option selected disabled>سعر</option>
+        <option value="1">اقل من 50</option> 
+        <option value="2">اقل من 300</option> 
+        <option value="3">اكثر من 300</option> 
+      </select>
+      <input class="btn btn-primary" type="submit" value="تصفيه">
+    </form>
+    
   </div>
+
+
+
+
 
 
   <div class="container my-3">
     <div class="row justify-content-center">
       <% @products.each do |product| %>
         <div class="card m-2 p-0">
-<%= image_tag("products/#{product.image_url}", class: 'card-img-top') %>
-
+          <%= image_tag("products/0#{(1 + product.id % 8)}.jpg", class: 'card-img-top') %>
           <div class="card-body">
-            <h3 class="card-title font-bold text-xl"><%= product.name%></h3>
-            <p class="card-text px-4 mb-1"><%=product.details%></p>            
+            <h3 class="card-title font-bold text-xl"><%= product.name %></h3>
+            <p class="card-text px-4 mb-1"><%= product.details %></p>
             <div class="mb-3">
-              <small class="mx-3 fw-bold fs-6">سعر <%=product.price%>$</small>
-              <small class="mx-3 fw-bold fs-6">مقاس <%=product.size%></small>
+              <small class="mx-3 fw-bold fs-6">سعر <%= product.price %>$</small>
+              <small class="mx-3 fw-bold fs-6">مقاس <%= product.size %></small>
             </div>
-            <a href="#" class="btn btn-primary w-50">شراء</a>
+            <%= button_to "اضافه الى السله", cart_add_to_cart_path, class: "btn btn-primary", form_class: "d-inline-block" %>
+            
           </div>
         </div>
-        <%end %>
+      <% end %>
+
     </div>
   </div>
+
+
 
 
   <footer class="bg-primary text-light text-center mt-auto">
