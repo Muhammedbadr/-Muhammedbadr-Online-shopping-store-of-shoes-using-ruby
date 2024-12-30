@@ -33,25 +33,27 @@
     
   </div>
 
-
-
-
-
-
   <div class="container my-3">
     <div class="row justify-content-center">
       <% @products.each do |product| %>
-        <div class="card m-2 p-0">
-          <%= image_tag("products/0#{(1 + product.id % 8)}.jpg", class: 'card-img-top') %>
+      <div class="card m-2 p-0 home-card" style="">
+          <%= image_tag(product.image_url, class:"card-img-top" )%>
+
           <div class="card-body">
             <h3 class="card-title font-bold text-xl"><%= product.name %></h3>
             <p class="card-text px-4 mb-1"><%= product.details %></p>
             <div class="mb-3">
-              <small class="mx-3 fw-bold fs-6">سعر <%= product.price %>$</small>
-              <small class="mx-3 fw-bold fs-6">مقاس <%= product.size %></small>
+              <small class="mx-3 fw-bold fs-6">سعر:<%= product.price %>$</small>
+              <small class="mx-3 fw-bold fs-6">مقاس:<%= product.size %></small>
             </div>
-            <%= button_to "اضافه الى السله", cart_add_to_cart_path, class: "btn btn-primary", form_class: "d-inline-block" %>
             
+            <a class="btn btn-primary" href="/products/<%= product.id %>">عرض التفاصيل</a>
+            <%= button_to "اضافه الى السله", cart_add_to_cart_path, 
+                  class: "btn btn-primary", 
+                  form_class: "d-inline-block", 
+                  method: :post, 
+                  params: { product_id: product.id }, 
+                  onclick: "alert('تم الاضافه الى السله');" %>
           </div>
         </div>
       <% end %>

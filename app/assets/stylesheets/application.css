@@ -45,10 +45,11 @@ body {
   border-color: #2786c5 !important;
 }
 
-.card {
-  width: 360px;
-  text-align: center;
+.home-card {
+  width: 360px ;
+  text-align: center ;
 }
+
 
 .btn-group {
   width: 200px;

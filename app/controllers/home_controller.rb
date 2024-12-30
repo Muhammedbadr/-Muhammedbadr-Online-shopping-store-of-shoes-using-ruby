@@ -14,6 +14,6 @@ class HomeController < ApplicationController
             else price == "3"
                 products = products.where("price  > ?", 300)
             end
-        @products = products
+        @products = products.last(6)
     end 
 end
