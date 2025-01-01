@@ -23,13 +23,16 @@
     <script src="your-script.js" defer></script>
     <%= javascript_importmap_tags %>
 
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
    <% if controller_name == "cart" %>
-    <% javascript_importmap_tags "stripe" %>
-  <% end %>
+      <%= javascript_include_tag "stripe" %>
+    <% end %>
 
   </head>
 

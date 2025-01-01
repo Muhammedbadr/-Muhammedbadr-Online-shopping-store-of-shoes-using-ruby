@@ -2,14 +2,14 @@
   <% if @products.empty? %>
     <h4 class="text-center">لا توجد منتجات داخل السلة</h4>
   <% else %>
-    <div class="row">
+    <div class="row justify-between">
       <!-- Product List -->
-      <div class="col-md-7">
+      <div class="col-md-4">
         <% @products.each do |product| %>
           <div class="card mb-3 shadow-sm">
             <div class="row g-0">
               <div class="col-md-4 d-flex justify-content-center align-items-center ">
-                <%= image_tag(product.image_url, class: "img-fluid rounded pr-1" ) %>
+                <%= image_tag(product.image_url, class: "img-fluid rounded pr-1 width:100%" ) %>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -28,7 +28,7 @@
       </div>
 
       <!-- Cart Summary and Payment -->
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="card bg-light shadow border-0">
           <div class="card-header text-center bg-primary text-white">
             <h5 class="m-0">سلة المشتريات</h5>

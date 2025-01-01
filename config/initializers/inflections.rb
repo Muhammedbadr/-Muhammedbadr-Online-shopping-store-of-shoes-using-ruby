@@ -14,4 +14,4 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
-Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret)
+Stripe.api_key = Rails.application.credentials[:stripe][:secret]
