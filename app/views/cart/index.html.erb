@@ -1,35 +1,71 @@
 <div class="container my-4">
-  <div class="row">
-    <div class="col-md-7">
-      <% @products.each do |product| %>
-        <div class="card m-3 p-0 shadow-sm" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-md-4 d-flex justify-content-center align-items-center">
-              <%= image_tag(product.image_url, class: "img-fluid rounded-3") %>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title fs-5 text-truncate"><%= product.name %></h5>
-                <p class="card-text text-muted"><%= product.details %></p>
+  <% if @products.empty? %>
+    <h4 class="text-center">لا توجد منتجات داخل السلة</h4>
+  <% else %>
+    <div class="row">
+      <!-- Product List -->
+      <div class="col-md-7">
+        <% @products.each do |product| %>
+          <div class="card mb-3 shadow-sm">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex justify-content-center align-items-center ">
+                <%= image_tag(product.image_url, class: "img-fluid rounded pr-1" ) %>
               </div>
-              <div class="card-footer d-flex justify-content-between align-items-center">
-                <p class="card-text mb-0" style="font-weight: bold;">السعر: <%= product.price %>$</p>
-                <a href="#" class="btn btn-primary btn-sm">شراء</a>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title fs-5 text-truncate"><%= product.name %></h5>
+                  <p class="card-text text-muted small"><%= product.details %></p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                  <p class="mb-0 fw-bold">السعر: <%= product.price %>$</p>
+                  <a href="#" class="btn btn-primary btn-sm">شراء</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+ 
+      </div>
 
-    <div class="col-md-5">
-      <div class="card text-dark bg-light m-3 shadow-sm" style="max-width: 540px;">
-        <div class="card-header text-center">سلة المشتريات</div>
-        <div class="card-body">
-            <p class="card-text">عدد المنتجات الكلي: <%= @products_count%></p>
-            <p class="card-text">السعر الكلي للمنتجات: <span class="text-success text-bold"><%= @total_price %>$    </span></p>
+      <!-- Cart Summary and Payment -->
+      <div class="col-md-5">
+        <div class="card bg-light shadow border-0">
+          <div class="card-header text-center bg-primary text-white">
+            <h5 class="m-0">سلة المشتريات</h5>
+          </div>
+          <div class="card-body">
+            <!-- Cart Details -->
+            <div class="mb-3">
+              <p class="card-text"><strong>عدد المنتجات الكلي:</strong> <%= @products_count %></p>
+              <p class="card-text">
+                <strong>السعر الكلي للمنتجات:</strong>
+                <span class="text-success fw-bold"><%= @total_price %>$</span>
+              </p>
+            </div>
+
+            <form class="card p-3 border-0" id="payment-form">
+              <div class="mb-3">
+                <label for="card-element" class="form-label">اسمك على البطاقة الائتمانية</label>
+                <input dir="ltr" class="form-control my-1" type="text" name="review_text" style="width: 100%;">
+              </div>
+              <div class="mb-3">
+                <label for="card-element" class="form-label">رقم البطاقة الائتمانية</label>
+                <div dir="ltr" id="card-element" class="card-element"></div>
+              </div>
+              <button class="btn btn-primary" id="submit">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">ادفع الآن</span>
+              </button>
+              <p id="card-error" role="alert"></p>
+              <p class="result-message hidden">
+                <a>تمت عملية الدفع بنجاح</a>
+              </p>
+            </form>
+
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

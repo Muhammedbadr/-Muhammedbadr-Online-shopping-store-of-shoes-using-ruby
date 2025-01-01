@@ -2,21 +2,21 @@
   <%= t('log_in') %> 
 </h2>
 
-<div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+<div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="mb-4">
       <%= f.label :email, class: "block text-gray-700 font-semibold mb-2" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" %>
     </div>
 
-    <div class="mb-4 ">
+    <div class="mb-4">
       <%= f.label :password, class: "block text-gray-700 font-semibold mb-2" %>
       <%= f.password_field :password, autocomplete: "current-password", class: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="mb-4 flex items-center">
-        <%= f.check_box :remember_me, class: "ml-2 " %>
+        <%= f.check_box :remember_me, class: "ml-2" %>
         <%= f.label :remember_me, class: "text-gray-600" %>
       </div>
     <% end %>
