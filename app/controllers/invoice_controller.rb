@@ -1,6 +1,11 @@
 class InvoiceController < ApplicationController
+    before_action :authenticate_user! , only: [:index]
+    skip_before_action :verify_authenticity_token
     def index
+        review_invoice_ids = Review.where(user_id: current_user.id).pluck(:invoice_id)
+        @invoices = Invoice.where(user_id: current_user.id).where.not(id: review_invoice_ids)
     end
+    
     def create
         payload = request.body.read
         sig_header = request.env['HTTP_STRIPE_SIGNATURE']

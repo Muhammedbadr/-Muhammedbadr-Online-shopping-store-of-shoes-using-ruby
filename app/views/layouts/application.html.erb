@@ -51,7 +51,7 @@
         <div class=" navbar-collapse justify-content-end" id="navbarSupportedContent">
           <form>
             <a class="btn btn-outline-light mx-2" href="cart/index">سلة المشتريات</a>
-            <a class="btn btn-outline-light mx-2" href="reviews.html">تقييم منتج</a>
+            <a class="btn btn-outline-light mx-2" href="invoice/index">تقييم منتج</a>
           </form>
             <% if user_signed_in? %>
               <%= button_to(t("sign_out"), destroy_user_session_path,class:"btn btn-outline-light mx-2", method: :delete) %>

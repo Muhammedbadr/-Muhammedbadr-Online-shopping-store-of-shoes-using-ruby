@@ -12,10 +12,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   get "products/:id", to: "product#index"
+  get "invoice/index"
   post "invoice/create"
   post "cart/create_payment_intent"
   get "cart/index"
   post "cart/add_to_cart"
+  post "review/create"
   root "home#index"
   
 end

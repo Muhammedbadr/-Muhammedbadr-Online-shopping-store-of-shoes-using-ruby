@@ -55,6 +55,14 @@
                   params: { product_id: product.id }, 
                   onclick: "alert('تم الاضافه الى السله');" %>
           </div>
+          
+          <div class="card-footer">
+            <% product.invoices.each do |invoices|%>
+             <% invoices.reviews.each do |review| %>
+                <p class="my-1"><%=review.review_text%></p>
+              <%end%>
+            <%end%>
+          </div>
         </div>
       <% end %>
 
